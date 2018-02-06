@@ -18,6 +18,8 @@ Look over the directory structure of the project before you start
 making changes to it, and consider the various tools that we are
 using to manage our project.
 
+##We will consider the tools at all time!
+
 :question: Answer questions *1*, *2*, and *3* [QUESTIONS](./LABTASKS.md#questions)
 
 ## Exploring the server
