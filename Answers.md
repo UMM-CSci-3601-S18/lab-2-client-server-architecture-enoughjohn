@@ -33,5 +33,6 @@
   
 ❓ 7 Describe what happens when you filter users by age in the client? What is read from the web page, and what request is sent to the server? What is received, and how/where is it displayed? :
 
-    When you filter users by age, a request is sent to the server for users with the age that you requested. The users and their information is displayed in the client.
+    When you filter users by age, a request is sent to the server for users with the age that you requested. The users with appropriate age and their information is displayed in the client.
 ❓ 8 Where is the client-side JavaScript defined? Name the file(s) in which it is used.
+    users.js and todo.js

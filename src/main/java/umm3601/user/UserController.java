@@ -63,5 +63,4 @@ public class UserController {
     User[] users = database.listUsers(req.queryMap().toMap());
     return buildSuccessJsonResponse("users", gson.toJsonTree(users));
   }
-
 }
