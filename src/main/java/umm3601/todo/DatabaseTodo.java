@@ -59,7 +59,11 @@ public class DatabaseTodo {
       }
     }
 
-    //
+    //filter by body(see if body contains the given string
+    if(queryParams.containsKey("contains")) {
+        String targetContains = queryParams.get("contains")[0];
+        filteredTodos = filterTodosByBody(filteredTodos, targetContains);
+    }
 
     return filteredTodos;
   }
@@ -95,5 +99,16 @@ public class DatabaseTodo {
    */
   public Todo[] filterTodosByCategory(Todo[] todos, String targetCategory){
     return Arrays.stream(todos).filter(x -> x.category.equals(targetCategory)).toArray(Todo[]::new);
+  }
+
+  /**
+   * get todos with bodies that contain a given string
+   *
+   * @param todos
+   * @param targetContains string to search for in body
+   * @return
+   */
+  public Todo[] filterTodosByBody(Todo[] todos, String targetContains) {
+    return Arrays.stream(todos).filter(x -> x.body.indexOf(targetContains) != -1).toArray(Todo[]::new);
   }
 }
