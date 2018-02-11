@@ -65,6 +65,15 @@ public class DatabaseTodo {
         filteredTodos = filterTodosByBody(filteredTodos, targetContains);
     }
 
+    //limit amount of todos the server returns
+    if(queryParams.containsKey("limit")) {
+      int limit = Integer.parseInt(queryParams.get("limit")[0]);
+
+      if (limit < filteredTodos.length) {
+        filteredTodos = limitTodos(filteredTodos, limit);
+      }
+    }
+
     return filteredTodos;
   }
 
@@ -110,5 +119,16 @@ public class DatabaseTodo {
    */
   public Todo[] filterTodosByBody(Todo[] todos, String targetContains) {
     return Arrays.stream(todos).filter(x -> x.body.indexOf(targetContains) != -1).toArray(Todo[]::new);
+  }
+
+  /**
+   * shortens a list of todos
+   *
+   * @param todos a list of todos
+   * @param limit length of limited list
+   * @return a limited list of todos
+   */
+  public Todo[] limitTodos(Todo[] todos, int limit){
+    return Arrays.copyOf(todos, limit);
   }
 }
