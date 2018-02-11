@@ -14,7 +14,7 @@ function getAllTodosByOwner() {
   console.log("Getting all the to-dos.");
 
   var HttpThingy = new HttpClient();
-  HttpThingy.get("/api/users?owner=" +  document.getElementById("owner").value, function(returned_json){
+  HttpThingy.get("/api/todos?owner=" +  document.getElementById("owner").value, function(returned_json){
     document.getElementById('jsonDump').innerHTML = returned_json;
   });
 }
@@ -23,7 +23,7 @@ function getAllTodosByCategory() {
   console.log("Getting all the to-dos.");
 
   var HttpThingy = new HttpClient();
-  HttpThingy.get("/api/users?=category" +  document.getElementById("category").value, function(returned_json){
+  HttpThingy.get("/api/todos?=category" +  document.getElementById("category").value, function(returned_json){
     document.getElementById('jsonDump').innerHTML = returned_json;
   });
 }
