@@ -46,9 +46,12 @@ public class Server {
     // List users, filtered using query parameters
     get("api/users", userController::getUsers);
 
+    //todo by id
     get("api/todos/:id", todoController::getTodo);
 
-    get("api/todos/", todoController::getTodos);
+    //all todos
+    get("api/todos", todoController::getTodos);
+
 
     // An example of throwing an unhandled exception so you can see how the
     // Java Spark debugger displays errors like this.
