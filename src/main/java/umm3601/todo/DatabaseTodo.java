@@ -49,8 +49,14 @@ public class DatabaseTodo {
 
     //filter status
     if(queryParams.containsKey("status")) {
-      Boolean targetStatus = Boolean.getBoolean(queryParams.get("status")[0]);
-      filteredTodos = filterTodosByStatus(filteredTodos, targetStatus);
+      //true
+      if (queryParams.get("status")[0].equals("complete")){
+        filteredTodos = filterTodosByStatus(filteredTodos, true);
+      }
+      //false
+      if (queryParams.get("status")[0].equals("incomplete")){
+        filteredTodos = filterTodosByStatus(filteredTodos, false);
+      }
     }
 
     //
