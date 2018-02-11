@@ -28,12 +28,12 @@ public class TodoController {
    * @param res HTTP response
    * @return successful JSON object if id is found, otherwise a fail JSON object
    */
-  public JsonObject getToDo(Request req, Response res) {
+  public JsonObject getTodo(Request req, Response res) {
     res.type("application/json");
     String id = req.params("id");
     Todo todo = databaseTodo.getTodo(id);
     if (todo != null) {
-      return buildSuccessJsonResponse("user", gson.toJsonTree(todo));
+      return buildSuccessJsonResponse("todo", gson.toJsonTree(todo));
     } else {
       String message = "ToDo with ID " + id + " wasn't found.";
       return buildFailJsonResponse("id", message);
