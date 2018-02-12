@@ -17,14 +17,4 @@ public class GetTodoByIDFromDB {
       "Ipsum esse est ullamco magna tempor anim laborum non officia deserunt veniam commodo. Aute minim incididunt ex commodo.",
       todo.body);
   }
-
-  @Test
-  //test second to last
-  public void get58895985f0a4bbea24084abf() throws IOException {
-    DatabaseTodo db = new DatabaseTodo("src/main/data/todos.json");
-    Todo todo = db.getTodo("58895985f0a4bbea24084abf");
-    assertEquals("Incorrect body",
-      "Adipisicing ea eu adipisicing esse ullamco. Qui sunt velit qui ut amet veniam eiusmod occaecat reprehenderit exercitation est occaecat.",
-      todo.body);
-  }
 }
