@@ -26,6 +26,43 @@
 
 
 /**
+ * Get all users
+ */
+function getAllTodos() {
+  console.log("Getting all the to-dos.");
+
+  var HttpThingy = new HttpClient();
+  HttpThingy.get("/api/todos", function(returned_json) {
+      document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+}
+
+function getAllTodosByOwner() {
+  console.log("Getting all the to-dos.");
+
+  var HttpThingy = new HttpClient();
+  HttpThingy.get("/api/todos?owner=" +  document.getElementById("owner").value, function(returned_json){
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+}
+
+function getAllTodosByCategory() {
+  console.log("Getting all the to-dos.");
+
+  var HttpThingy = new HttpClient();
+  HttpThingy.get("/api/todos?=category" +  document.getElementById("category").value, function(returned_json){
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+}
+
+
+
+
+
+
+
+
+/**
  * Wrapper to make generating http requests easier. Should maybe be moved
  * somewhere else in the future!.
  *
