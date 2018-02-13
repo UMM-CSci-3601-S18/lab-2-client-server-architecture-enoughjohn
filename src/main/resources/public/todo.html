@@ -16,6 +16,12 @@
   owner: <input id="owner" type= "text" name="owner">
   <button type="button" id="getTodosByOwner"> get to-dos by owner </button>
 
+  category: <input id="category" type= "text" name="category">
+  <button type="button" id="getTodosByCategory"> get to-dos by category </button>
+
+  status: <input id="status" type= "text" name="status">
+  <button type="button" id="getTodosByStatus"> get to-dos by status(complete or incomplete) </button>
+
   <script>
     window.onload = function() {
       console.log("The page is loaded now!");
@@ -23,8 +29,14 @@
       var element = document.getElementById('getAll');
       element.addEventListener("click", getAllTodos, true);
 
+      element = document.getElementById('getTodosByStatus');
+      element.addEventListener("click", getAllTodosByStatus, true);
+
       element = document.getElementById('getTodosByOwner');
       element.addEventListener("click", getAllTodosByOwner, true);
+
+      element = document.getElementById('getTodosByCategory');
+      element.addEventListener("click", getAllTodosByCategory, true);
     }
   </script>
 </body>

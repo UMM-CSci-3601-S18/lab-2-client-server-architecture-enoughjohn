@@ -50,7 +50,16 @@ function getAllTodosByCategory() {
   console.log("Getting all the to-dos.");
 
   var HttpThingy = new HttpClient();
-  HttpThingy.get("/api/todos?=category" +  document.getElementById("category").value, function(returned_json){
+  HttpThingy.get("/api/todos?category=" +  document.getElementById("category").value, function(returned_json){
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+}
+
+function getAllTodosByStatus() {
+  console.log("Getting all the to-dos by Status.");
+
+  var HttpThingy = new HttpClient();
+  HttpThingy.get("/api/todos?status=" +  document.getElementById("status").value, function(returned_json){
     document.getElementById('jsonDump').innerHTML = returned_json;
   });
 }
