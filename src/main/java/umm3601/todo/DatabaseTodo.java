@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Map;
 
 public class DatabaseTodo {
@@ -74,6 +75,12 @@ public class DatabaseTodo {
       }
     }
 
+    //order the todos alphabetically by field
+    if(queryParams.containsKey("orderBy")) {
+      String field = queryParams.get("orderBy")[0];
+      filteredTodos = sortAlpha(filteredTodos, field);
+    }
+
     return filteredTodos;
   }
 
@@ -130,5 +137,21 @@ public class DatabaseTodo {
    */
   public Todo[] limitTodos(Todo[] todos, int limit){
     return Arrays.copyOf(todos, limit);
+  }
+
+  public Todo[] sortAlpha(Todo[] todos, String field) {
+    if (field.equals("owner")){
+      Arrays.sort(todos, Comparator.comparing(x -> x.owner));
+    }
+    else if (field.equals("status")) {
+      Arrays.sort(todos, Comparator.comparing(x -> x.status));
+    }
+    else if (field.equals("body")) {
+      Arrays.sort(todos, Comparator.comparing(x -> x.body));
+    }
+    else if (field.equals("category")) {
+      Arrays.sort(todos, Comparator.comparing(x -> x.category));
+    }
+    return todos;
   }
 }
